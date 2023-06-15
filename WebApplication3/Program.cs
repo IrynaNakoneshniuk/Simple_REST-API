@@ -21,7 +21,7 @@ app.Run(async (context) =>
     }
     else if (Regex.IsMatch(path, expressionForGuid)&&request.Method=="GET")
     {
-        string id = path.Value?.Split("/")[3];
+        string ?id = path.Value?.Split("/")[3];
         await GetCarById(response, id);
     }
     else if (path == "/api/cars" && request.Method == "POST")
@@ -34,7 +34,7 @@ app.Run(async (context) =>
     }
     else if(Regex.IsMatch(path, expressionForGuid) && request.Method == "DELETE")
     {
-        string id = path.Value?.Split("/")[3];
+        string ?id = path.Value?.Split("/")[3];
         await DeleteCar(id, response);
     }
     else
